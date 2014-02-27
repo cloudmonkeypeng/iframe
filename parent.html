@@ -3,20 +3,30 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<script scripttype="text/javascript"> 
 	 
-	function say(){  
-	 alert("parent.html------>I'matparent.html");  
+	function say(){
+		alert("parent.html------>I'matparent.html");  
 	}  
 
 	function callChild()  
 	{  
 		//document.frames("myFrame").f1();  
 		myFrame.window.say();  
-	}  
+	}
+
+	function post(){
+		//alert('123');
+		var message = '风行前端 ' + (new Date().getTime()),type = 1;
+		window.parent.frames[0].postMessage({
+			type: type,
+			message: message
+		}, '*');
+	}
 	</script> 
 </head> 
  
 <body> 
 	<input type=button value="调用child.html中的 函数say()"  onclick="callChild()"> 
+	<input type=button value="测试postmessage" onclick="post()">
 	<iframe name="myFrame" src="child.html">
 	</iframe> 
 </body> 

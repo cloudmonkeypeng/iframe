@@ -10,6 +10,17 @@
 	function callParent(){
 		parent.say();  
 	}  
+
+	var onmessage = function(e) {
+		alert(e.data.message)
+	};
+
+	if (typeof window.addEventListener != 'undefined') {
+		window.addEventListener('message', onmessage, false);
+	} else if (typeof window.attachEvent != 'undefined') {
+		window.attachEvent('onmessage', onmessage);
+	}
+	
 	</script> 
 </head> 
 <body> 
