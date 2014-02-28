@@ -1,0 +1,25 @@
+<html> 
+<head> 
+	<title>Cross Frame Messaging with postMessage</title> 
+</head> 
+<body> 
+
+	<h3>Parent Document (examples.proiedev.com)</h3> 
+	Post message to remote document (www.ie-examples.com):&nbsp;&nbsp;  
+	<input id="postDataInput" size="25" type="text">&nbsp;&nbsp;  
+	<input onclick="postToRemote();" type="submit" value="Post Message">
+	<br><br> 
+	<iframe id="remoteFrame"  src="post_child.html" width="400px" height="200px" class="highlightBorder" frameborder="no"></iframe> 
+	<script type="text/javascript"> 
+
+
+	function postToRemote() {  
+		
+		var postData = String(document.getElementById("postDataInput"). value);  
+		
+		var remote = document.getElementById("remoteFrame");
+		remote.contentWindow.postMessage(postData, "*");
+	}
+	</script> 
+</body> 
+</html> 

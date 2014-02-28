@@ -1,0 +1,26 @@
+<html> 
+<head> 
+	<title>Cross Frame Messaging with postMessage (Receiver)</title> 
+</head> 
+<body> 
+	<h3>Remote Page (www.ie-examples.com)</h3> 
+
+	Message Origin (e.origin): <span id="receivedDataOrigin"></span><br> 
+	Message Contents (e.data): <span id="receivedDataContents"></span><br> 
+	Message Type (e.type): <span id="receivedDataType"></span><br> 
+	
+	<script type="text/javascript"> 
+	
+	if(window.addEventListener)  
+		window.addEventListener("message", receiveData, false);  
+	else 
+		window.attachEvent("onmessage", receiveData);  
+	
+	
+	function receiveData(e) {
+		alert(e.data);
+	}  
+
+</script> 
+</body> 
+</html> 

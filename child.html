@@ -11,14 +11,14 @@
 		parent.say();  
 	}  
 
-	var onmessage = function(e) {
+	var onmessage1 = function(e) {
 		alert(e.data.message)
 	};
 
 	if (typeof window.addEventListener != 'undefined') {
-		window.addEventListener('message', onmessage, false);
+		window.addEventListener('message', onmessage1, false);
 	} else if (typeof window.attachEvent != 'undefined') {
-		window.attachEvent('onmessage', onmessage);
+		window.attachEvent('onmessage', onmessage1);
 	}
 	
 	</script> 
